@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add note</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: khaki;
+        }
+        .btnstyle {
+            background-color:blue;
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button style="float:right" class="btnstyle">Back</button>
+    <form method="POST">
+        <div>
+            <h1>Add Notes</h1>
+        </div>
+        <label>Title</label>
+        <p><input placeholder="Enter note title here" type="text" name="tittle" required/></p>
+        <label>Notes</label>
+        <p><textarea rows="9" style="width:40%" placeholder="Enter Notes Description" name="content" required></textarea></p>
+        <button class="btnstyle">Submit</button>
+    </form>
+</body>
+</html>

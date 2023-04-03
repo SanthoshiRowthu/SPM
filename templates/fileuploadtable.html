@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File upload</title>
+    <style>
+        body {
+            background-color: azure;
+        }
+        .file {
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+        .back{
+            float: right;
+        }
+        table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .form-group {
+            margin: 3%;
+        }
+        .btnstyle {
+            background-color:blue;
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight:bold;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for message in messages %}
+   <center><b> {{ message }}</b></center>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('home')}}"><button class="back btnstyle">Back</button></body></html></a>
+    <form class="form-group" method="POST" action="{{url_for('filehandling')}}" enctype="multipart/form-data">
+        <input type="file" style="width:200px" id="actual-btn" name="file"/>
+        <button>Submit</button>
+    </form>
+    <table cellpadding="10px">
+        {% for i in data %}
+        <tr>
+            <td><a href="{{url_for('viewfile',fid=i[0])}}">{{i[1]}}</a></td>
+            <td>download</td>
+            <td><a href="{{url_for('filedelete',fid=i[0])}}">Delete</a></td>
+            <td>{{i[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

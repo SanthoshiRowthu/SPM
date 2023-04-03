@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Personal Record</title>
+    <style>
+        * {
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: royalblue;
+        }
+        .btnstyle {
+            background-color:yellow;
+            color:black;
+            padding:20px;
+            border-radius: 8px;
+            border:none;
+            font-size: 25px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>    
+</head>
+<body>
+    <center>
+    <h1 style="color:white;">Student Personal Record Manager</h1></center>
+    <!--You have to give the links to the specific pages where the notes and 
+        file pages need to go-->
+    <a href="{{url_for('notehome')}}"><button class="btnstyle">Notes</button></a>
+    <a href="{{url_for('fileshome')}}"><button class="btnstyle">Files</button></a>
+    <a href="{{url_for('logout')}}"<button class="btnstyle" style="margin-left:65%;">Logout</button>
+</body>
+</html>

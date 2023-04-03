@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhaW58ZW58MHx8MHx8&w=1000&q=80');
+            background-size: cover;
+        }
+        b{
+            color:antiquewhite;
+        }
+        label {
+            color: white;
+        }
+        .btnstyle {
+            background-color: skyblue;
+            color:black;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <center><b> {{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center>
+    <h1 style="color:white">Student Registration Page</h1></center>
+    <div style="margin-left:42%;; margin-top:5%">
+    <form method="POST">
+        <label>Roll No:</label>
+        <p><input placeholder="Enter roll number" type="text" name="rollno" required/></p>
+        <label>Name:</label>
+        <p><input placeholder="Enter Name" type="text" name="name" required/></p>
+        <label>Group:</label>
+        <p><input placeholder="Enter Group name" type="text" name="group" required/></p>
+        <label>Password:</label>
+        <p><input placeholder="Enter password" type="text" name="password" required/></p>
+        <label>College Code:</label>
+        <p><input placeholder="Enter College Code" type="text" name="code" required/></p>
+        <label>email</label>
+        <p><input type="email" name="email" required/></p>
+        <button class="btnstyle">Register</button>
+        <a href="{{url_for('login')}}" target="_blank">Already Have an Account?</a>
+    </form>
+</div>
+
+</body>
+</html>

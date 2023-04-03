@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Notes</title>
+    <style>
+         table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .btnstyle {
+            background-color:blue;
+            color:white;
+            padding:20px;
+            border-radius: 8px;
+            border:none;
+            font-size: 25px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <center><b> {{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+   <div>
+        <a href="{{url_for('addnote')}}"><button class="btnstyle">Add notes</button></a>
+        <a href="{{url_for('home')}}"><button class="btnstyle">Back</button></a>
+   </div>
+   <table cellpadding="10px">
+    {% for i in data %}
+        <tr>
+            <td>{{i[2]}}</td>
+            <td><a href="{{url_for('viewnotes',nid=i[0])}}">View</a></td>
+            <td><a href="{{url_for('updatenote',nid=i[0])}}">Update</a></td>
+            <td><a href="{{url_for('deletenotes',nid=i[0])}}">Delete</a></td>
+            <td>{{i[4]}}</td>
+        </tr>
+       {% endfor %}
+   </table>
+</body>
+</html>
